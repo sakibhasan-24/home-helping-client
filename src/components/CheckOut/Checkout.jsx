@@ -5,6 +5,20 @@ import { AuthContext } from "../../context/AuthProvider";
 export default function Checkout() {
   const { user } = useContext(AuthContext);
   const services = useLoaderData();
+  const handleBookingData = (e) => {
+    e.preventDefault();
+    const bookingData = {
+      customerName: user.displayName,
+      date: e.target.date.value,
+      email: e.target.email.value,
+      serviceId: services._id,
+      address: e.target.address.value,
+      phone: e.target.phone.value,
+      detail: e.target.details.value,
+      serviceTitle: services.title,
+    };
+    console.log(bookingData);
+  };
   return (
     <div className="max-w-5xl mx-auto">
       <h1 className="text-center font-bold text-2xl my-6">
@@ -38,7 +52,10 @@ export default function Checkout() {
       {/* form section */}
       <div>
         <h1 className="text-center text-4xl font-bold">Add Booking</h1>
-        <form className="max-w-4xl mx-auto bg-gray-600 px-6 py-4 rounded-lg shadow-2xl flex flex-col gap-6">
+        <form
+          onSubmit={handleBookingData}
+          className="max-w-4xl mx-auto bg-gray-600 px-6 py-4 rounded-lg shadow-2xl flex flex-col gap-6"
+        >
           <input
             type="text"
             name="name"
