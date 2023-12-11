@@ -9,6 +9,8 @@ export default function Checkout() {
     e.preventDefault();
     const bookingData = {
       customerName: user.displayName,
+      img: services.image,
+      price: services.cost,
       date: e.target.date.value,
       email: e.target.email.value,
       serviceId: services._id,
@@ -17,7 +19,16 @@ export default function Checkout() {
       detail: e.target.details.value,
       serviceTitle: services.title,
     };
-    console.log(bookingData);
+    // console.log(bookingData);
+    fetch("http://localhost:5000/booking", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(bookingData),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
   };
   return (
     <div className="max-w-5xl mx-auto">
