@@ -1,11 +1,16 @@
 import { useContext } from "react";
 import { FaGoogle } from "react-icons/fa6";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../context/AuthProvider";
+import { toast } from "react-toastify";
 
 // import { toast } from "react-toastify";
 // import { AuthContext } from "../context/AuthProvider";
 
 export default function Login() {
+  const { userLogIn, googleLogIn } = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
   const handleLogIn = (e) => {
     e.preventDefault();
     // a new way try
@@ -13,7 +18,24 @@ export default function Login() {
     const email = formValue.get("email");
     const password = formValue.get("password");
     // console.log(email, password);
+
+    userLogIn(email, password)
+      .then((res) => {
+        console.log(res.user);
+        navigate("/");
+        toast.success("Logged in successfully");
+      })
+      .catch((e) => toast.error("Invalid email or password"));
     // Sakib@
+  };
+  const handleSignInGoogle = () => {
+    googleLogIn()
+      .then((res) => {
+        console.log(res.user);
+        navigate("/");
+        toast.success("Logged in successfully");
+      })
+      .catch((e) => toast.error("Invalid email or password"));
   };
   return (
     <div className="w-full mx-0 md:max-w-2xl lg:max-w-2xl md:mx-auto bg-green-500 my-6">
@@ -46,6 +68,7 @@ export default function Login() {
         />
 
         <button
+          onClick={handleSignInGoogle}
           className="flex items-center justify-center gap-2 bg-blue-700 text-white px-6 py-2 rounded-md mx-auto my-4"
           type="button"
         >
