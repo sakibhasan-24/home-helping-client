@@ -21,8 +21,29 @@ export default function Login() {
 
     userLogIn(email, password)
       .then((res) => {
-        console.log(res.user);
-        navigate("/");
+        // console.log(res.user);
+
+        const user = { email };
+        fetch(
+          "http://localhost:5000/jwt",
+
+          {
+            method: "POST",
+            credentials: "include",
+
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(user),
+          }
+        )
+          .then((res) => res.json())
+          .then((data) => {
+            // console.log(data);
+            if (data.success === true) {
+              navigate(location?.state ? location.state : "/");
+            }
+          });
         toast.success("Logged in successfully");
       })
       .catch((e) => toast.error("Invalid email or password"));
@@ -31,8 +52,9 @@ export default function Login() {
   const handleSignInGoogle = () => {
     googleLogIn()
       .then((res) => {
-        console.log(res.user);
-        navigate("/");
+        // console.log(res.user);
+
+        navigate(location?.state ? location.state : "/");
         toast.success("Logged in successfully");
       })
       .catch((e) => toast.error("Invalid email or password"));

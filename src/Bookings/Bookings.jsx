@@ -8,10 +8,10 @@ export default function Bookings() {
 
   const url = `http://localhost:5000/bookings?email=${user?.email}`;
   useEffect(() => {
-    fetch(url)
+    fetch(url, { credentials: "include" })
       .then((res) => res.json())
       .then((data) => setBookings(data));
-  }, [user?.email]);
+  }, [url]);
 
   const handleDelete = (id) => {
     Swal.fire({
