@@ -1,6 +1,5 @@
 [
   {
-    "id": 1,
     "title": "Home Cleaning",
     "image": "https://i.ibb.co/D84XR6Y/cdc-VRpj-Dw3-Wqq-I-unsplash.jpg",
     "cost": 50.0,
@@ -12,7 +11,6 @@
     ]
   },
   {
-    "id": 2,
     "title": "Car Repair",
     "image": "https://i.ibb.co/vPkk3CP/2.jpg",
     "cost": 30.0,
@@ -21,7 +19,6 @@
     "facilities": ["Experienced car detailing", "Waterless cleaning option"]
   },
   {
-    "id": 3,
     "title": "Garden Cleaning",
     "image": "https://i.ibb.co/z2LKsyW/maarten-van-den-heuvel-1n8zqoq-FUGc-unsplash.jpg",
     "cost": 80.0,
@@ -30,7 +27,6 @@
     "facilities": ["Professional gardeners", "Green waste disposal"]
   },
   {
-    "id": 4,
     "title": "Appliance Repair",
     "image": "https://i.ibb.co/VD5mh3N/istockphoto-525480198-170667a.webp",
     "cost": 60.0,
@@ -39,7 +35,6 @@
     "facilities": ["Certified technicians", "Fast and reliable service"]
   },
   {
-    "id": 5,
     "title": "Painting Services",
     "image": "https://i.ibb.co/SxCKsV5/painting-techniques-room-size.jpg",
     "cost": 120.0,
@@ -48,7 +43,6 @@
     "facilities": ["Skilled painters", "Quality paint materials"]
   },
   {
-    "id": 6,
     "title": "Plumbing Repairs",
     "image": "https://i.ibb.co/Yd6jsfJ/images.jpg",
     "cost": 75.0,
@@ -57,7 +51,6 @@
     "facilities": ["Licensed plumbers", "24/7 emergency services"]
   },
   {
-    "id": 7,
     "title": "Electrical Installation",
     "image": "https://i.ibb.co/hgZrMcQ/electricalinstallationmaintenance.jpg",
     "cost": 90.0,
@@ -66,7 +59,6 @@
     "facilities": ["Certified electricians", "Compliance with safety standards"]
   },
   {
-    "id": 8,
     "title": "Carpentry Services",
     "image": "https://i.ibb.co/6NVZ8NY/01.png",
     "cost": 110.0,
@@ -76,7 +68,6 @@
   },
 
   {
-    "id": 9,
     "title": "Window Cleaning",
     "image": "https://i.ibb.co/vYGQ78H/s-l1200.webp",
     "cost": 40.0,

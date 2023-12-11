@@ -29,6 +29,7 @@ export default function AuthProvider({ children }) {
     setLoading(true);
     return signInWithPopup(auth, googleAuthProvider);
   };
+
   const userLogOut = () => {
     setLoading(false);
     return signOut(auth);
