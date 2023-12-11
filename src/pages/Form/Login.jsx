@@ -12,6 +12,7 @@ export default function Login() {
     const formValue = new FormData(e.currentTarget);
     const email = formValue.get("email");
     const password = formValue.get("password");
+    // console.log(email, password);
     // Sakib@
   };
   return (

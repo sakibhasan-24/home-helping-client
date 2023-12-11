@@ -2,12 +2,20 @@ import React from "react";
 import { FaGoogle } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 export default function Signup() {
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    const formValue = new FormData(e.currentTarget);
+    const name = formValue.get("name");
+    const email = formValue.get("email");
+    const password = formValue.get("password");
+    console.log(name, email, password);
+  };
   return (
     <div className="w-full mx-0 md:max-w-2xl lg:max-w-2xl md:mx-auto bg-green-500 my-6">
       <h1 className="text-center font-semibold text-gray-500 text-2xl my-6">
         Please Login
       </h1>
-      <form className=" my-6 rounded-lg">
+      <form onSubmit={handleFormSubmit} className=" my-6 rounded-lg">
         <div className="flex flex-col gap-6 items-center justify-center ">
           <input
             className="w-full md:w-3/4 px-6 py-3 border-2 border-green-300 rounded-lg focus:border-blue-950"
