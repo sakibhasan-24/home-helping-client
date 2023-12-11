@@ -39,7 +39,7 @@ export default function AuthProvider({ children }) {
       if (!user) {
         console.log("no current User");
       }
-      setLoading(true);
+      setLoading(false);
       setUser(user);
     });
     return () => clearMemory();

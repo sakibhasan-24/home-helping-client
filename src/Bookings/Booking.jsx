@@ -4,7 +4,7 @@ export default function Booking({ booking }) {
   //   console.log(booking);
   return (
     <div>
-      <div className="flex items-center justify-center py-4">
+      <div className="flex flex-col lg:flex-col items-center justify-center py-4 border-4 mx-1 my-4">
         <div className="w-[50px] ">
           <img
             className="w-[50px] rounded-full h-[50px]"
@@ -12,7 +12,7 @@ export default function Booking({ booking }) {
             alt="image"
           />
         </div>
-        <div className="w-4/5 flex  gap-4 shadow-2xl space-y-8 whitespace-nowrap">
+        <div className="w-full lg:w-4/5 flex flex-col lg:flex-row gap-4 shadow-2xl space-y-2 lg:space-y-8 whitespace-nowrap">
           <h3>{booking.title}</h3>
           <p>${booking.price}</p>
           <p>client Name:{booking.customerName}</p>
@@ -20,10 +20,12 @@ export default function Booking({ booking }) {
           <p>calls:{booking.phone ? booking.phone : "no number"}</p>
           <p>service date{booking.date}</p>
           <p>{booking.address}</p>
-          <p className="bg-green-400 px-2 py-1 text-black cursor-pointer">
+          <p className="bg-green-400 px-2 py-1 w-1/2 mx-auto text-black cursor-pointer">
             edit
           </p>
-          <p className="cursor-pointer bg-red-600 px-2 py-2">Delete</p>
+          <p className="cursor-pointer w-1/2 mx-auto bg-red-600 px-2 py-2">
+            Delete
+          </p>
         </div>
       </div>
     </div>

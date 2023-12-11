@@ -5,6 +5,7 @@ import Login from "../pages/Form/Login";
 import Signup from "../pages/Form/Signup";
 import Checkout from "../components/CheckOut/Checkout";
 import Bookings from "../Bookings/Bookings";
+import Protected from "./Protected";
 
 const router = createBrowserRouter([
   {
@@ -23,7 +24,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/bookings",
-        element: <Bookings />,
+        element: (
+          <Protected>
+            <Bookings />
+          </Protected>
+        ),
       },
     ],
   },

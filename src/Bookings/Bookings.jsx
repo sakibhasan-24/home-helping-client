@@ -13,7 +13,7 @@ export default function Bookings() {
       .then((data) => setBookings(data));
   }, [user?.email]);
   return (
-    <div className="max-w-full mx-auto shadow-2xl my-8 text-center">
+    <div className=" w-full lg:max-w-full mx-auto shadow-2xl my-8 text-center">
       <h1 className="text-4xl font-bold">
         {user?.displayName} has {bookings.length} bookings
       </h1>
