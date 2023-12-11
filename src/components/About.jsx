@@ -19,15 +19,15 @@ export default function About() {
           <h1 className="text-5xl font-bold">
             About <span className="text-orange-700">Us</span>
           </h1>
-          <p className="py-6">
+          <div className="py-6">
             We have skilled qualified Teams.We have provided
-            <div className="flex flex-col text-orange-700  space-y-2 font-semibold">
+            <p className="flex flex-col text-orange-700  space-y-2 font-semibold">
               <span>Home Cleaning</span>
               <span>Garden Cleaning</span>
               <span>Car Cleaning</span>
               <span>Electronics services</span>
-            </div>
-          </p>
+            </p>
+          </div>
           <button className="btn btn-primary">Get Started</button>
         </div>
       </div>
