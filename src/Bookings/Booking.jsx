@@ -1,7 +1,7 @@
 import React from "react";
 
-export default function Booking({ booking }) {
-  //   console.log(booking);
+export default function Booking({ booking, handleDelete }) {
+  console.log(booking._id);
   return (
     <div>
       <div className="flex flex-col lg:flex-col items-center justify-center py-4 border-4 mx-1 my-4">
@@ -23,7 +23,10 @@ export default function Booking({ booking }) {
           <p className="bg-green-400 px-2 py-1 w-1/2 mx-auto text-black cursor-pointer">
             edit
           </p>
-          <p className="cursor-pointer w-1/2 mx-auto bg-red-600 px-2 py-2">
+          <p
+            onClick={() => handleDelete(booking._id)}
+            className="cursor-pointer w-1/2 mx-auto bg-red-600 px-2 py-2"
+          >
             Delete
           </p>
         </div>
