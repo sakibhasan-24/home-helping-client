@@ -27,7 +27,7 @@ export default function Header() {
         {user?.email ? (
           <>
             {" "}
-            <Link to="/profile">{user.displayName}</Link>
+            <Link to="/bookings">Dashboard</Link>
             <Link onClick={handleLogOut} to="/login">
               LogOut
             </Link>

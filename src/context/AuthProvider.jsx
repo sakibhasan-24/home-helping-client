@@ -31,7 +31,7 @@ export default function AuthProvider({ children }) {
   };
 
   const userLogOut = () => {
-    setLoading(false);
+    setLoading(true);
     return signOut(auth);
   };
   useEffect(() => {
