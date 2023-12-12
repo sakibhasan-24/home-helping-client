@@ -50,14 +50,26 @@ export default function Login() {
     // Sakib@
   };
   const handleSignInGoogle = () => {
-    googleLogIn()
-      .then((res) => {
-        // console.log(res.user);
-
-        navigate(location?.state ? location.state : "/");
-        toast.success("Logged in successfully");
+    googleLogIn().then((res) => {
+      const email = res.user?.email;
+      fetch("http://localhost:5000/jwt", {
+        method: "POST",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
       })
-      .catch((e) => toast.error("Invalid email or password"));
+        .then((data) => {
+          if (data.success === true) {
+            // console.log(data);
+            navigate(location?.state ? location.state : "/");
+          }
+        })
+        .catch((e) => {
+          console.log(e.message);
+        });
+    });
   };
   return (
     <div className="w-full mx-0 md:max-w-2xl lg:max-w-2xl md:mx-auto bg-green-500 my-6">

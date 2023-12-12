@@ -6,10 +6,25 @@ import { toast } from "react-toastify";
 export default function Header() {
   const { user, userLogOut } = useContext(AuthContext);
   const handleLogOut = () => {
-    console.log("cl");
+    // console.log("cl");
     userLogOut()
       .then(() => {
-        toast.success("Logged Out Successfully");
+        // toast.success("Logged Out Successfully");
+        fetch(
+          "http://localhost:5000/jwtlogout",
+
+          {
+            method: "POST",
+            credentials: "include",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        )
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+          });
       })
       .catch((e) => toast.error(e.message));
   };

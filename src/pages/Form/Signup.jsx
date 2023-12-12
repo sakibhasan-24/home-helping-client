@@ -37,10 +37,31 @@ export default function Signup() {
     console.log("clicked");
     googleLogIn()
       .then((res) => {
-        const userInfo = res.user;
-        console.log(userInfo);
-        toast.success("Signup Successful");
-        navigate("/login");
+        const email = res.user?.email;
+        // console.log(email);
+        fetch(
+          "http://localhost:5000/jwt",
+
+          {
+            method: "POST",
+            credentials: "include",
+
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ email }),
+          }
+        )
+          .then((res) => res.json())
+          .then((data) => {
+            // console.log(data);
+            if (data.success === true) {
+              navigate(location?.state ? location.state : "/");
+            }
+          });
+        // console.log(userInfo);
+        // toast.success("Signup Successful");
+        // navigate("/login");
       })
       .catch((err) => toast.error(err.message));
   };

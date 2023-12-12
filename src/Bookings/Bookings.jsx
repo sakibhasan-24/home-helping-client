@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 export default function Bookings() {
   const { user } = useContext(AuthContext);
   const [bookings, setBookings] = useState([]);
-
+  console.log(user?.email);
   const url = `http://localhost:5000/bookings?email=${user?.email}`;
   useEffect(() => {
     fetch(url, { credentials: "include" })
