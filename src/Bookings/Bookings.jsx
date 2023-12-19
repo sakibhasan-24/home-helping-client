@@ -5,6 +5,7 @@ import Swal from "sweetalert2";
 export default function Bookings() {
   const { user } = useContext(AuthContext);
   const [bookings, setBookings] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
   console.log(user?.email);
   const url = `http://localhost:5000/bookings?email=${user?.email}`;
   useEffect(() => {

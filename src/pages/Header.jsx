@@ -39,11 +39,11 @@ export default function Header() {
   };
 
   return (
-    <header className=" bg-blue-950 px-2 py-6 text-white flex items-center justify-between font-semibold">
+    <header className=" bg-blue-950 px-2 py-6 text-white flex flex-col md:flex-col lg:flex-row items-center justify-between font-semibold">
       <div>
         <Link to="">Home</Link>
       </div>
-      <div className="flex items-center justify-center space-x-4 ">
+      <div className="flex flex-col lg:flex-row space-y-6 lg:space-y-2 items-center justify-center   lg:space-x-4 ">
         <input
           onClick={handleTheme}
           type="radio"

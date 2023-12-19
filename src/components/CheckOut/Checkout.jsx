@@ -111,7 +111,7 @@ export default function Checkout() {
           <input
             type="submit"
             value="add"
-            className="bg-gray-700 px-6 py-2 rounded-md w-3/4 mx-auto cursor-pointer font-bold text-xl"
+            className="bg-gray-700 px-6 text-orange-700  py-2 rounded-md w-3/4 mx-auto cursor-pointer font-bold text-xl"
           />
         </form>
       </div>
