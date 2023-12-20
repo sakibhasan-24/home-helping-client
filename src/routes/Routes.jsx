@@ -6,6 +6,7 @@ import Signup from "../pages/Form/Signup";
 import Checkout from "../components/CheckOut/Checkout";
 import Bookings from "../Bookings/Bookings";
 import Protected from "./Protected";
+import Edit from "../pages/Edit";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,14 @@ const router = createBrowserRouter([
         element: (
           <Protected>
             <Bookings />
+          </Protected>
+        ),
+      },
+      {
+        path: "/edit/:id",
+        element: (
+          <Protected>
+            <Edit />
           </Protected>
         ),
       },

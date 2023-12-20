@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Booking({ booking, handleDelete }) {
   console.log(booking._id);
@@ -20,9 +21,12 @@ export default function Booking({ booking, handleDelete }) {
           <p>calls:{booking.phone ? booking.phone : "no number"}</p>
           <p>service date{booking.date}</p>
           <p>{booking.address}</p>
-          <p className="bg-green-400 px-2 py-1 w-1/2 mx-auto text-black cursor-pointer">
-            edit
-          </p>
+          <Link
+            className="bg-green-400 px-2 py-1 w-1/2 mx-auto text-black cursor-pointer"
+            to={`/edit/${booking._id}`}
+          >
+            <p>edit</p>
+          </Link>
           <p
             onClick={() => handleDelete(booking._id)}
             className="cursor-pointer w-1/2 mx-auto bg-red-600 px-2 py-2"
