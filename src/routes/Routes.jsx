@@ -24,7 +24,9 @@ const router = createBrowserRouter([
           </Protected>
         ),
         loader: ({ params }) => {
-          return fetch(`http://localhost:5000/services/${params.id}`);
+          return fetch(
+            `https://home-helping-server.vercel.app/services/${params.id}`
+          );
         },
       },
       {

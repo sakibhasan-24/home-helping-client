@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export default function Booking({ booking, handleDelete }) {
-  console.log(booking._id);
+  // console.log(booking._id);
   return (
     <div>
       <div className="flex flex-col lg:flex-col items-center justify-center py-4 border-4 mx-1 my-4">

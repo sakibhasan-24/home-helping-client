@@ -11,7 +11,7 @@ export default function Header() {
       .then(() => {
         // toast.success("Logged Out Successfully");
         fetch(
-          "http://localhost:5000/jwtlogout",
+          "https://home-helping-server.vercel.app/jwtlogout",
 
           {
             method: "POST",

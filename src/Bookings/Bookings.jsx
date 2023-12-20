@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/AuthProvider";
 import Booking from "./Booking";
 import Swal from "sweetalert2";
+import Spinner from "../components/Spinner/Spinner";
 export default function Bookings() {
   const { user } = useContext(AuthContext);
   const [bookings, setBookings] = useState([]);
@@ -9,8 +10,8 @@ export default function Bookings() {
   const [currentPage, setCurrentPage] = useState(0);
   const [numberOfItemPerPage, setNumberOfItemPerPage] = useState(3);
   // console.log(user?.email);
-  const url = `http://localhost:5000/bookings?email=${user?.email}&page=${currentPage}&size=${numberOfItemPerPage}`;
-  // console.log(url);
+  const url = `https://home-helping-server.vercel.app/bookings?email=${user?.email}&page=${currentPage}&size=${numberOfItemPerPage}`;
+  console.log(url);
   useEffect(() => {
     fetch(url, { credentials: "include" })
       .then((res) => res.json())
@@ -19,10 +20,14 @@ export default function Bookings() {
         // console.log(data);
       });
   }, [url]);
+  // https://home-helping-server.vercel.app/
   useEffect(() => {
-    fetch(`http://localhost:5000/bookings?email=${user?.email}`, {
-      credentials: "include",
-    })
+    fetch(
+      `https://home-helping-server.vercel.app/bookings?email=${user?.email}`,
+      {
+        credentials: "include",
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         setGetOnlyDataCount(data);
@@ -58,7 +63,7 @@ export default function Bookings() {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/booking/${id}`, {
+        fetch(`https://home-helping-server.vercel.app/booking/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -79,16 +84,19 @@ export default function Bookings() {
   return (
     <div className=" w-full lg:max-w-full mx-auto shadow-2xl my-8 text-center">
       <h1 className="text-4xl font-bold">
-        {user?.displayName} has {getOnlyDataCount.length} bookings
+        {user?.displayName} has{" "}
+        {getOnlyDataCount.length === 0 ? <Spinner /> : getOnlyDataCount.length}{" "}
+        bookings
       </h1>
       <div>
-        {bookings.map((booking) => (
-          <Booking
-            key={booking._id}
-            booking={booking}
-            handleDelete={handleDelete}
-          />
-        ))}
+        {bookings.length > 0 &&
+          bookings?.map((booking) => (
+            <Booking
+              key={booking._id}
+              booking={booking}
+              handleDelete={handleDelete}
+            />
+          ))}
       </div>
       {/* paginations */}
       <div className="bg-red-400 p-4 rounded-lg">

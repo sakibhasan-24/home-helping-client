@@ -40,7 +40,7 @@ export default function Signup() {
         const email = res.user?.email;
         // console.log(email);
         fetch(
-          "http://localhost:5000/jwt",
+          "https://home-helping-server.vercel.app/jwt",
 
           {
             method: "POST",

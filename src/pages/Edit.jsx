@@ -11,7 +11,7 @@ export default function Edit() {
 
   console.log(newInformation);
   useEffect(() => {
-    fetch(`http://localhost:5000/bookings/${id}`, {
+    fetch(`https://home-helping-server.vercel.app/bookings/${id}`, {
       credentials: "include",
     })
       .then((res) => res.json())
@@ -28,7 +28,7 @@ export default function Edit() {
     const phone = form.phone.value;
     const detail = form.details.value;
     const latestBooking = { name, date, address, phone, detail, _id: id };
-    fetch(`http://localhost:5000/booking/update/${id}`, {
+    fetch(`https://home-helping-server.vercel.app/booking/update/${id}`, {
       method: "PUT",
       credentials: "include",
       headers: {

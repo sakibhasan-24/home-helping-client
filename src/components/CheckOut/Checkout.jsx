@@ -20,7 +20,7 @@ export default function Checkout() {
       serviceTitle: services.title,
     };
     // console.log(bookingData);
-    fetch("http://localhost:5000/booking", {
+    fetch("https://home-helping-server.vercel.app/booking", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

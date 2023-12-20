@@ -25,7 +25,7 @@ export default function Login() {
 
         const user = { email };
         fetch(
-          "http://localhost:5000/jwt",
+          "https://home-helping-server.vercel.app/jwt",
 
           {
             method: "POST",
@@ -41,6 +41,7 @@ export default function Login() {
           .then((data) => {
             // console.log(data);
             if (data.success === true) {
+              console.log(data);
               navigate(location?.state ? location.state : "/");
             }
           });
@@ -52,7 +53,7 @@ export default function Login() {
   const handleSignInGoogle = () => {
     googleLogIn().then((res) => {
       const email = res.user?.email;
-      fetch("http://localhost:5000/jwt", {
+      fetch("https://home-helping-server.vercel.app/jwt", {
         method: "POST",
         credentials: "include",
         headers: {
